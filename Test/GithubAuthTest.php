@@ -13,6 +13,61 @@ class GithubAuthTest extends Base
         $this->assertEquals('Github', $provider->getName());
     }
 
+    public function testGetClientId()
+    {
+        $provider = new GithubAuthProvider($this->container);
+        $this->assertEmpty($provider->getClientId());
+
+        $this->assertTrue($this->container['config']->save(array('github_client_id' => 'my_id')));
+        $this->container['memoryCache']->flush();
+
+        $this->assertEquals('my_id', $provider->getClientId());
+    }
+
+    public function testGetClientSecret()
+    {
+        $provider = new GithubAuthProvider($this->container);
+        $this->assertEmpty($provider->getClientSecret());
+
+        $this->assertTrue($this->container['config']->save(array('github_client_secret' => 'secret')));
+        $this->container['memoryCache']->flush();
+
+        $this->assertEquals('secret', $provider->getClientSecret());
+    }
+
+    public function testGetOAuthAuthorizeUrl()
+    {
+        $provider = new GithubAuthProvider($this->container);
+        $this->assertEquals('https://github.com/login/oauth/authorize', $provider->getOAuthAuthorizeUrl());
+
+        $this->assertTrue($this->container['config']->save(array('github_authorize_url' => 'my auth url')));
+        $this->container['memoryCache']->flush();
+
+        $this->assertEquals('my auth url', $provider->getOAuthAuthorizeUrl());
+    }
+
+    public function testGetOAuthTokenUrl()
+    {
+        $provider = new GithubAuthProvider($this->container);
+        $this->assertEquals('https://github.com/login/oauth/access_token', $provider->getOAuthTokenUrl());
+
+        $this->assertTrue($this->container['config']->save(array('github_token_url' => 'my token url')));
+        $this->container['memoryCache']->flush();
+
+        $this->assertEquals('my token url', $provider->getOAuthTokenUrl());
+    }
+
+    public function testGetApiUrl()
+    {
+        $provider = new GithubAuthProvider($this->container);
+        $this->assertEquals('https://api.github.com/', $provider->getApiUrl());
+
+        $this->assertTrue($this->container['config']->save(array('github_api_url' => 'my api url')));
+        $this->container['memoryCache']->flush();
+
+        $this->assertEquals('my api url', $provider->getApiUrl());
+    }
+
     public function testAuthenticationSuccessful()
     {
         $profile = array(
