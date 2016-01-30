@@ -61,6 +61,8 @@ Your name and email are automatically updated from your Github Account if define
 1. The easiest way is to copy and paste the Github OAuth2 credentials in the form **Settings > Integrations > Github Authentication**.
 2. Or add the credentials in your custom config file
 
+![github-auth](https://cloud.githubusercontent.com/assets/323546/12696019/a42a31a2-c72c-11e5-9181-ed146ed0b74c.png)
+
 If you use the second method, use these parameters in your `config.php`:
 
 ```php
