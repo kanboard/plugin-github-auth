@@ -7,5 +7,6 @@ return array(
     'Github Account' => 'Compte Github',
     'Github Authentication' => 'Authentification Github',
     'Help on Github authentication' => 'Aide sur l\'authentification Github',
+    'Leave blank to use the default URL.' => 'Laissez vide pour utiliser l\'URL par défaut.',
 );
 
