@@ -72,7 +72,7 @@ class GithubAuthProvider extends Base implements OAuthAuthenticationProviderInte
      *
      * @access public
      * @param  string  $code
-     * @return GithubAuth
+     * @return GithubAuthProvider
      */
     public function setCode($code)
     {
