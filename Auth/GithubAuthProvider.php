@@ -103,7 +103,7 @@ class GithubAuthProvider extends Base implements OAuthAuthenticationProviderInte
             $this->service = $this->oauth->createService(
                 $this->getClientId(),
                 $this->getClientSecret(),
-                $this->helper->url->to('OAuth', 'handler', array('plugin' => 'GithubAuth'), '', true),
+                $this->helper->url->to('OAuthController', 'handler', array('plugin' => 'GithubAuth'), '', true),
                 $this->getOAuthAuthorizeUrl(),
                 $this->getOAuthTokenUrl(),
                 array()
@@ -138,7 +138,7 @@ class GithubAuthProvider extends Base implements OAuthAuthenticationProviderInte
      */
     public function unlink($userId)
     {
-        return $this->user->update(array('id' => $userId, 'github_id' => ''));
+        return $this->userModel->update(array('id' => $userId, 'github_id' => ''));
     }
 
     /**
@@ -153,7 +153,7 @@ class GithubAuthProvider extends Base implements OAuthAuthenticationProviderInte
             return GITHUB_CLIENT_ID;
         }
 
-        return $this->config->get('github_client_id');
+        return $this->configModel->get('github_client_id');
     }
 
     /**
@@ -168,7 +168,7 @@ class GithubAuthProvider extends Base implements OAuthAuthenticationProviderInte
             return GITHUB_CLIENT_SECRET;
         }
 
-        return $this->config->get('github_client_secret');
+        return $this->configModel->get('github_client_secret');
     }
 
     /**
@@ -183,7 +183,7 @@ class GithubAuthProvider extends Base implements OAuthAuthenticationProviderInte
             return GITHUB_OAUTH_AUTHORIZE_URL;
         }
 
-        return $this->config->get('github_authorize_url', 'https://github.com/login/oauth/authorize');
+        return $this->configModel->get('github_authorize_url', 'https://github.com/login/oauth/authorize');
     }
 
     /**
@@ -198,7 +198,7 @@ class GithubAuthProvider extends Base implements OAuthAuthenticationProviderInte
             return GITHUB_OAUTH_TOKEN_URL;
         }
 
-        return $this->config->get('github_token_url', 'https://github.com/login/oauth/access_token');
+        return $this->configModel->get('github_token_url', 'https://github.com/login/oauth/access_token');
     }
 
     /**
@@ -213,6 +213,6 @@ class GithubAuthProvider extends Base implements OAuthAuthenticationProviderInte
             return GITHUB_API_URL;
         }
 
-        return $this->config->get('github_api_url', 'https://api.github.com/');
+        return $this->configModel->get('github_api_url', 'https://api.github.com/');
     }
 }
