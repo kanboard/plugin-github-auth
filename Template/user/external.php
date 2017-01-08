@@ -1,6 +1,6 @@
 <h3><i class="fa fa-github fa-fw"></i> <?= t('Github Account') ?></h3>
 
-<p class="listing">
+<div class="panel">
 <?php if ($this->user->isCurrentUser($user['id'])): ?>
     <?php if (empty($user['github_id'])): ?>
         <?= $this->url->link(t('Link my Github Account'), 'OAuthController', 'handler', array('plugin' => 'GithubAuth'), true) ?>
@@ -10,4 +10,4 @@
 <?php else: ?>
     <?= empty($user['github_id']) ? t('No account linked.') : t('Account linked.') ?>
 <?php endif ?>
-</p>
+</div>

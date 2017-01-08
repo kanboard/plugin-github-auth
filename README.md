@@ -14,7 +14,7 @@ Author
 Requirements
 ------------
 
-- Kanboard >= 1.0.29
+- Kanboard >= 1.0.37
 - OAuth Github API credentials (available in your [Settings > Applications > Developer applications](https://github.com/settings/applications))
 
 Installation

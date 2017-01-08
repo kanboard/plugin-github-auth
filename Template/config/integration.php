@@ -1,6 +1,5 @@
 <h3><i class="fa fa-github fa-fw"></i><?= t('Github Authentication') ?></h3>
-<div class="listing">
-
+<div class="panel">
     <?= $this->form->label(t('Github OAuth callback URL'), 'github_oauth_url') ?>
     <input type="text" class="auto-select" readonly="readonly" value="<?= $this->url->href('OAuthController', 'handler', array('plugin' => 'GithubAuth'), false, '', true) ?>"/>
 
