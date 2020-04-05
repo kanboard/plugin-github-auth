@@ -1,8 +1,6 @@
 Github Authentication
 =====================
 
-[![Build Status](https://travis-ci.org/kanboard/plugin-github-auth.svg?branch=master)](https://travis-ci.org/kanboard/plugin-github-auth)
-
 Link a Github account to a Kanboard user profile.
 
 Author
